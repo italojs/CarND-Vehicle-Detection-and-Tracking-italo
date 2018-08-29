@@ -10,19 +10,19 @@
 
 Project's steps:
 
-* extract a HOG (Histogram of Oriented Gradients) features on a image dataset and train a classifier Linear SVM classifier
+* Axtract a HOG (Histogram of Oriented Gradients) features af a image dataset and train a Linear SVM classifier
 
 
-* Optionally, you can also apply a color transform and append binned color features, as well as histograms of color, to your HOG feature vector. 
+* [Optional]You can also apply a color histogram and append binned color features to your HOG feature vector. 
 
 
-* Note: for those first two steps don't forget to normalize your features and randomize a selection for training and testing.
+* Note: Don't forget to normalize your features and shuffle it for training and testing.
 
 
-* Implement a sliding-window technique and use your trained classifier to search for vehicles in images.
+* Implement a sliding-window technique into down side of your image and use your trained classifier to search for vehicles in images.
 
 
-* Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
+* Run your pipeline on a video stream and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
 
 
 * Estimate a bounding box for vehicles detected.
@@ -31,7 +31,7 @@ In this README, each step of the pipeline will be explained.
 
 ## Files
 
-* `P5.ipynb` : main code for this project 
+* `./veihicle_detect_P5.ipynb` : main code for this project 
 
 * `data` : contains a link to the `vehicles` and `non-vehicles` datasets
 
@@ -47,7 +47,7 @@ In this README, each step of the pipeline will be explained.
 
 ### Loading and Visualizing the data
 
-For this project I used the **`vehicle`** (labeled as `car_images`) and **`non-vehicle`** (labeled as `noncar_images`) datasets provided by [Udacity](https://github.com/udacity/CarND-Vehicle-Detection). Below is are 8 random images from the **`vehicle`** and **`non-vehicle`** datasets.
+For this project I used the **`vehicle`** and **`non-vehicle`** datasets provided by [Udacity](https://github.com/udacity/CarND-Vehicle-Detection). Below is are 6 random images from the **`vehicle`** and **`non-vehicle`** datasets.
 
 <p align="center">
     <img src="output_images/data_visualization.png" width="600">
@@ -65,7 +65,7 @@ The **`get_hog_features`** function takes in an image and computes the Histogram
 
 ### Defining a function to compute Color Histogram features and visualizing the results
 
-The **`color_hist`** function computes Color Histogram features labeled **`hist_features`**. This function returns concatenated color channels by default and separate color channels if the **`vis == True`** flag is called. Below is the visualization of the **'R' 'G' and 'B'** channels from a random `car_image`.
+The **`color_hist`** function computes Color Histogram features labeled **`hist_features`**.  Below is the visualization of the **'R' 'G' and 'B'** channels from a `car_image`.
 
 <p align="center">
     <img src="output_images/color_hist_vis.png" width="600">
@@ -97,7 +97,7 @@ After extracting HOG and color features from the **`car_images`** and **`noncar_
 
 ### Sliding Window Implementation
 
-The **`slide_window`** function takes in an image, start and stop positions, window size and overlap fraction and returns a list of bounding boxes for the search windows, which will then be passed to draw boxes. Below is an illustration of the **`slide_window`** function with adjusted `y_start_stop` values [400, 656].
+The **`slide_window`** function takes in an image -> start and stop positions -> window size -> overlap fraction ->  returns a list of bounding boxes for the search windows, which will then be passed to draw boxes. Below is an illustration of the **`slide_window`** function with adjusted `y_start_stop` values [400, 656].
 
 <p align="center">
     <img src="output_images/sliding_windows.png" width="600">
@@ -115,10 +115,10 @@ pix_per_cell = 8 # HOG pixels per cell
 cell_per_block = 2 # HOG cells per block
 hog_channel = 'ALL' # Can be 0, 1, 2, or "ALL"
 spatial_size = (32, 32) # Spatial binning dimensions
-hist_bins = 64   # Number of histogram bins
-spatial_feat = True # Spatial features on or off
-hist_feat = True # Histogram features on or off
-hog_feat = True # HOG features on or off
+hist_bins = 64  
+spatial_feat = True 
+hist_feat = True
+hog_feat = True
 ```
 Test Accuracy of SVC is 98.87%
 
