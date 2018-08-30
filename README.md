@@ -1,4 +1,7 @@
 # Self-Driving Car Engineer Nanodegree
+<p align="center">
+    <img src="https://i.makeagif.com/media/8-30-2018/qyUQZ1.gif" width="500">
+</p>
 
 ## Vehicle Detection - Project 5
 
@@ -53,7 +56,7 @@ For this project I used the **`vehicle`** and **`non-vehicle`** datasets provide
     <img src="output_images/data_visualization.png" width="600">
 </p>
 
-### Defining a function to return HOG features and visualization
+### Return HOG features and visualization
 
 The **`get_hog_features`** function takes in an image and computes the Histogram of Oriented Gradient (HOG) features in it using the **`hog()`** function from the [scikit-image](http://scikit-image.org/docs/dev/api/skimage.feature.html?highlight=feature%20hog#skimage.feature.hog) package. Below is the visualization of the **`get_hog_features`** function.
 
@@ -63,7 +66,7 @@ The **`get_hog_features`** function takes in an image and computes the Histogram
 
 
 
-### Defining a function to compute Color Histogram features and visualizing the results
+### Compute Color Histogram features and visualizing the results
 
 The **`color_hist`** function computes Color Histogram features labeled **`hist_features`**.  Below is the visualization of the **'R' 'G' and 'B'** channels from a `car_image`.
 
@@ -72,7 +75,7 @@ The **`color_hist`** function computes Color Histogram features labeled **`hist_
 </p>
 
 
-### Defining a function to return Spatial Binning of Color features and visualizing the results
+### Spatial Binning of Color features and visualizing the results
 
 The **`bin_spatial`** function takes in an image, a color space, and a new image size and returns a feature vector. Useful for extracting color features from low resolution images. Below is an example of spatially binned color features extracted from an image before and after resizing. 
 
@@ -86,7 +89,7 @@ The **`bin_spatial`** function takes in an image, a color space, and a new image
 </p>
 
 
-### Defining a function to extract features from a list of images
+### Extracting features from a image list 
 
 The **`extract_features`** function etracts the features returned by the **`bin_spatial`**, **`color_hist`** and **`get_hog_features`** functions. Each functions has a `True` flag assigned to it so that the features can be extracted individually or all at once. 
   
@@ -144,3 +147,7 @@ The **`find_cars`** function extracts the HOG and color features, scales them an
 2. In the future I would like to try using deep-learning for vehicle recognition, perhaps using the ["You only look once"](https://pjreddie.com/darknet/yolo/) method.
 3. The pipeline used in this project tends to do poorly when areas of the image darken by the presence of shadows. Classifying dark pixels as `cars`, creating false-positives. This issue could be resolved by adding more dark images to the `non-vehicle` dataset.
 4. For the purpose of this project, `xstart` and `xstop` could also be implemented as the left outer portion of the frame is mostly useless and creates a lot of false-positives.
+
+<p align="center">
+    <img src="https://media.giphy.com/media/KJ1f5iTl4Oo7u/source.gif" width="500">
+</p>
